@@ -1,4 +1,4 @@
-# Classroom Analytics
+# Intelligent Classroom
 
 | Details            |              |
 |-----------------------|---------------|
@@ -8,7 +8,7 @@
 
 ## Introduction
 
-The aim of this Reference Implementation is to give feedback to the teachers about the class without interfering with their lecture. The Classroom Analytics reference implementation monitors the live classroom and provides metrics for Class Attentivity, Class Participation, Happiness Index and also captures automatic attendance.
+The aim of this Reference Implementation is to give feedback to the teachers about the class without interfering with their lecture. The Intelligent Classroom reference implementation monitors the live classroom and provides metrics for Class Attentivity, Class Participation, Happiness Index and also captures automatic attendance.
 
 The data from each classroom can be visualized on Grafana. The complete solution is deployed as a Docker containers. We use different containers for each service [ ClassRoom Analytics RI, InfluxDB Datastore, Grafana Visualizations ]
 
