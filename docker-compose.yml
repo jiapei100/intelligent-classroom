@@ -1,0 +1,58 @@
+version: "2"
+services:
+  grafana:
+    image: grafana/grafana:6.1.6
+    container_name: grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-volume:/var/lib/grafana
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+        vpcbr:
+            ipv4_address: 172.21.0.7
+
+  influxdb:
+    image: influxdb:1.7.6
+    container_name: influxdb
+    ports:
+      - 8086:8086
+      - 8083:8083
+    volumes:
+      - influxdb-volume:/var/lib/influxdb
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+        vpcbr:
+            ipv4_address: 172.21.0.6
+
+  classroom-analytics:
+    image: classroom-analytics
+    stdin_open: true
+    environment:
+      - DISPLAY=unix:0
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - "/etc/localtime:/etc/localtime:ro"
+      - classroom-analytics-volume:/var/lib/classroom-analytics
+    extra_hosts:
+       - "outside1:172.17.0.1"
+    networks:
+       - vpcbr
+
+volumes:
+  grafana-volume:
+    external: true
+  influxdb-volume:
+    external: true
+  classroom-analytics-volume:
+    external: true
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.21.0.0/16
+         gateway: 172.21.0.1

@@ -1,0 +1,25 @@
+Social   1 
+Science  2
+Maths    3
+Physics  4
+Chemisty 5
+English  6
+Telugu   7
+Social   8 
+Science  9
+Maths    10
+Physics  11
+Chemisty 12
+English  13
+Telugu   14
+Social   15
+Science  16
+Maths    17
+Physics  18
+Chemisty 19
+English  20
+Telugu   21
+Social   22 
+Science  23
+Maths    24
+
